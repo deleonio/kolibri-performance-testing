@@ -1,0 +1,19 @@
+<h1>Kolibri form</h1>
+<div class="mt-10 flex flex-col w-1/3 gap-5">
+  <kol-input-text
+    *ngFor="let input of textInputNumber"
+    [_on]="onValueChange"
+    _hint="input text"
+    [_label]="'Text input nr' + input"
+    _touched
+    _required
+    _name="text"
+  />
+  <kol-input-checkbox
+    *ngFor="let check of checkboxesNumber"
+    [_id]="check"
+    [_label]="check"
+    [_name]="'checkbox nr' + check"
+    [_on]="onValueChange"
+  />
+</div>
