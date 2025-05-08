@@ -5,17 +5,21 @@ import { AppComponent } from './app.component';
 import {DefaultViewComponent} from "./components/default-view/default-view.component";
 import {KolibriViewComponent} from "./components/kolibri-view/kolibri-view.component";
 import {defineCustomElements} from "@public-ui/components/dist/loader";
-import {DEFAULT} from "@public-ui/themes";
-import {register} from "@a11y-ui/core";
-import {setKolibriTheme} from "../customTheme";
+import {DEFAULT} from "@public-ui/theme-default";
+import { register } from '@public-ui/components';
+import { CustomElementViewComponent } from './components/custom-element-view/custom-element-view.component';
+import { ShadowElementViewComponent } from './components/shadow-element-view/shadow-element-view.component';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     RouterModule.forRoot([
-      { path: '', component: DefaultViewComponent },
+      { path: 'default', component: DefaultViewComponent },
+      { path: 'custom-element', component: CustomElementViewComponent },
+      { path: 'shadow-element', component: ShadowElementViewComponent },
       { path: 'kolibri', component: KolibriViewComponent },
+      { path: '**', redirectTo: 'default' }  
     ])
   ],
   bootstrap: [AppComponent]
@@ -23,9 +27,6 @@ import {setKolibriTheme} from "../customTheme";
 export class AppModule {
   constructor() {
     register(DEFAULT, defineCustomElements)
-      .then(() => {
-        setKolibriTheme();
-      })
       .catch(console.warn);
   }
 }

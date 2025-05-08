@@ -1,6 +1,24 @@
 <nav class="p-4 space-x-4 bg-gray-100">
-  <a routerLink="/" routerLinkActive="font-bold">Default</a>
-  <a routerLink="/kolibri" routerLinkActive="font-bold">Kolibri</a>
+  <ul class="flex space-x-4">
+    <li>
+      <a routerLink="/default" routerLinkActive="font-bold">Native HTML</a>
+    </li>
+    <li>
+      <a routerLink="/custom-element" routerLinkActive="font-bold"
+        >HTMLElement (LightDOM)</a
+      >
+    </li>
+    <li>
+      <a routerLink="/shadow-element" routerLinkActive="font-bold"
+        >HTMLElement (ShadowRoot)</a
+      >
+    </li>
+    <li>
+      <a routerLink="/kolibri" routerLinkActive="font-bold"
+        >KoliBri-WebComponents</a
+      >
+    </li>
+  </ul>
 </nav>
 
 <main class="p-4">
